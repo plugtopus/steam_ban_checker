@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Использовать свой API Key для Проверки бана в профиле</title>
+  <style>
+    #settingsBody {
+      padding: 1em;
+    }
+
+    #statusSaved {
+      visibility: hidden;
+    }
+  </style>
+</head>
+
+<body id="settingsBody">
+  Впишите свой API Key здесь:
+  <input type="text" id="customapikey" size="35">
+  <form>
+    <label>
+      <input type="radio" name="usecustom" id="radioCustom">Использовать свой API Key</label>
+    <br>
+    <label>
+      <input type="radio" name="usecustom" id="radioDefault" checked>Использовать вшитый API Key</label>
+  </form>
+  <a href="http://steamcommunity.com/dev/apikey" target="_blank">Создать свой API Key</a>
+  <br>
+  <br>
+  <label>
+    <input type="checkbox" id="chkGreentext">Не отображать слово зеленым цветов ("Банов нет")</label>
+  <div id="statusSaved">Опции сохранины.</div>
+  <div style="text-align:center;">
+    <button id="save">Сохранить</button>
+  </div>
+  <script src="../js/options.js"></script>
+</body>
+
+</html>

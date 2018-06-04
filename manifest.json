@@ -1,0 +1,61 @@
+{
+  "author": "Plugtopus Agency",
+  "name": "__MSG_name__",
+  "default_locale": "ru",
+  "homepage_url": "https://plugtopus.agency",
+  "description": "__MSG_desc__",
+  "version": "1.6.18.1",
+  "icons": {
+    "16": "icon/ow16.png",
+    "48": "icon/ow48.png",
+    "128": "icon/ow128.png"
+  },
+  "permissions": [
+    "storage", "alarms", "contextMenus", "*://steamcommunity.com/*", "https://api.steampowered.com/*"
+  ],
+  "optional_permissions": [
+    "notifications"
+  ],
+  "options_ui": {
+    "page": "html/options.html",
+    "chrome_style": true
+  },
+  "web_accessible_resources": [
+    "html/options.html"
+  ],
+  "content_scripts": [{
+      "js": ["js/checkbans.js", "js/options.js", "js/display.js"],
+      "css": ["css/display.css"],
+      "run_at": "document_end",
+      "matches": ["*://steamcommunity.com/id/*/friends*", "*://steamcommunity.com/profiles/*/friends*"]
+    },
+    {
+      "js": ["js/checkbans.js"],
+      "run_at": "document_end",
+      "matches": ["*://steamcommunity.com/groups/*/members*"]
+    },
+    {
+      "js": ["js/replaceurl.js"],
+      "run_at": "document_end",
+      "matches": ["*://steamcommunity.com/groups/*"]
+    },
+    {
+      "js": ["js/options.js", "js/gcpd730.js"],
+      "css": ["css/display.css"],
+      "run_at": "document_end",
+      "matches": [
+        "*://steamcommunity.com/id/*/gcpd/730*tab=matchhistorycompetitive",
+        "*://steamcommunity.com/profiles/*/gcpd/730*tab=matchhistorycompetitive",
+        "*://steamcommunity.com/id/*/gcpd/730*tab=matchhistorywingman",
+        "*://steamcommunity.com/profiles/*/gcpd/730*tab=matchhistorywingman",
+        "*://steamcommunity.com/id/*/gcpd/730*tab=matchhistoryophydra",
+        "*://steamcommunity.com/profiles/*/gcpd/730*tab=matchhistoryophydra"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": ["js/history.js", "js/contextmenus.js"],
+    "persistent": false
+  },
+  "manifest_version": 2
+}
